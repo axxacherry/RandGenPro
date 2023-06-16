@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机数生成器</title>
+</head>
+<body>
+    <h1>随机数生成器</h1>
+    <p>最小值：<input type="number" id="minValue" value="1"></p>
+    <p>最大值：<input type="number" id="maxValue" value="100"></p>
+    <button onclick="generateRandomNumber()">生成随机数</button>
+    <p id="result"></p>
+
+    <script>
+        function generateRandomNumber() {
+            const minValue = parseInt(document.getElementById("minValue").value);
+            const maxValue = parseInt(document.getElementById("maxValue").value);
+
+            if (minValue >= maxValue) {
+                alert("最小值必须小于最大值");
+                return;
+            }
+
+            const randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+            document.getElementById("result").innerText = "生成的随机数为：" + randomNumber;
+        }
+    </script>
+</body>
+</html>
